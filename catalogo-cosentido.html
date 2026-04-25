@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosentido – Catálogo Virtual</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --primary: #9b2251;
+      --primary-dark: #6e1538;
+      --accent: #e8a0bf;
+      --gold: #c9a84c;
+      --bg: #0f0a0d;
+      --bg2: #1a1017;
+      --card: #1e1220;
+      --card-border: #3a1f30;
+      --text: #f5e6ec;
+      --text-muted: #b08898;
+      --white: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a0a12 0%, #3d1030 50%, #1a0a12 100%);
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(155,34,81,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 4px;
+      text-shadow: 0 0 40px rgba(155,34,81,0.8);
+      position: relative;
+    }
+    .hero .logo span { color: var(--accent); }
+    .hero .tagline {
+      font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      font-weight: 300;
+      position: relative;
+    }
+    .hero .divider {
+      width: 80px; height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 20px auto;
+    }
+    .hero .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── FILTROS ── */
+    .filters-wrap {
+      background: var(--bg2);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--card-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1.5px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.25s;
+      letter-spacing: 0.5px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 0 15px rgba(155,34,81,0.4);
+    }
+
+    /* ── GRID ── */
+    .catalog {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title .icon { font-size: 1.4rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(155,34,81,0.3);
+      border-color: var(--primary);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+      background: #2a1525;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img-inner {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #2a1525, #1a0a12);
+    }
+    .badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: var(--gold);
+      color: #1a0a12;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .card-body {
+      padding: 14px 16px 16px;
+    }
+    .card-cat {
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .card-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-price {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .card-price span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .btn-order {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-order:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(155,34,81,0.5);
+      transform: scale(1.05);
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      background: #25D366;
+      color: white;
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      z-index: 999;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.7);
+    }
+    .wa-tooltip {
+      position: fixed;
+      bottom: 36px; right: 96px;
+      background: #1a1017;
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+      border: 1px solid var(--card-border);
+      z-index: 998;
+      animation: pulse 2s infinite;
+    }
+    .wa-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -7px; top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: var(--card-border);
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--bg2);
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    footer strong { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 480px) {
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .card-body { padding: 10px 12px 12px; }
+      .card-name { font-size: 0.88rem; }
+      .card-price { font-size: 1rem; }
+      .wa-tooltip { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="logo">Co<span>sentido</span></div>
+  <div class="tagline">✦ Todo para vivir momentos únicos ✦</div>
+  <div class="divider"></div>
+  <p class="subtitle">Tu tienda de confianza para parejas. Productos íntimos, accesorios y diversión en un solo lugar.</p>
+</header>
+
+<!-- FILTROS -->
+<div class="filters-wrap">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCat('all')">🔥 Todo</button>
+    <button class="filter-btn" onclick="filterCat('juguetes')">💕 Juguetes</button>
+    <button class="filter-btn" onclick="filterCat('aceites')">🌹 Aceites</button>
+    <button class="filter-btn" onclick="filterCat('gorras')">🧢 Gorras</button>
+    <button class="filter-btn" onclick="filterCat('pinateria')">🎉 Piñatería Adulta</button>
+    <button class="filter-btn" onclick="filterCat('juegos')">🎲 Juegos</button>
+    <button class="filter-btn" onclick="filterCat('bebidas')">🍹 Juegos para Beber</button>
+  </div>
+</div>
+
+<!-- CATÁLOGO -->
+<main class="catalog" id="catalog">
+
+  <!-- JUGUETES PARA PAREJAS -->
+  <h2 class="section-title" id="sec-juguetes"><span class="icon">💕</span> Juguetes para Parejas</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="juguetes">
+      <div class="card-img">
+        <div class="card-img-inner">🌸</div>
+        <span class="badge">Popular</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juguetes</div>
+        <div class="card-name">Kit Básico de Parejas</div>
+        <div class="card-desc">Incluye todo lo esencial para explorar juntos. Diseño discreto y elegante.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Básico%20de%20Parejas%20💕" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="juguetes">
+      <div class="card-img">
+        <div class="card-img-inner">🌺</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juguetes</div>
+        <div class="card-name">Vibrador Dual</div>
+        <div class="card-desc">Estimulación doble con múltiples velocidades. Silicona médica 100% segura.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Vibrador%20Dual%20🌺" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="juguetes">
+      <div class="card-img">
+        <div class="card-img-inner">🔮</div>
+        <span class="badge">Nuevo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juguetes</div>
+        <div class="card-name">Bala Vibradora</div>
+        <div class="card-desc">Pequeña, potente y recargable. Perfecta para principiantes y aventureros.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Bala%20Vibradora%20🔮" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="juguetes">
+      <div class="card-img">
+        <div class="card-img-inner">❤️‍🔥</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juguetes</div>
+        <div class="card-name">Set de Esposas + Venda</div>
+        <div class="card-desc">Accesorios de rol suaves y seguros. Incluye estuche de regalo.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Set%20de%20Esposas%20❤️‍🔥" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ACEITES PARA MASAJES -->
+  <h2 class="section-title" id="sec-aceites"><span class="icon">🌹</span> Aceites para Masajes</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="aceites">
+      <div class="card-img">
+        <div class="card-img-inner">🌹</div>
+        <span class="badge">Popular</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Aceites</div>
+        <div class="card-name">Aceite de Rosa & Vainilla</div>
+        <div class="card-desc">Aroma irresistible, efecto calor al soplar. 60ml. Comestible.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Aceite%20de%20Rosa%20y%20Vainilla%20🌹" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="aceites">
+      <div class="card-img">
+        <div class="card-img-inner">🍓</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Aceites</div>
+        <div class="card-name">Aceite de Fresa</div>
+        <div class="card-desc">Suaviza la piel, aroma dulce y frutal. Efecto tibio. Comestible.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Aceite%20de%20Fresa%20🍓" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="aceites">
+      <div class="card-img">
+        <div class="card-img-inner">🫐</div>
+        <span class="badge">Nuevo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Aceites</div>
+        <div class="card-name">Kit Aceites x3 Sabores</div>
+        <div class="card-desc">Fresa, vainilla y mora azul. Ideal como regalo de pareja.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Aceites%20x3%20🫐" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- GORRAS -->
+  <h2 class="section-title" id="sec-gorras"><span class="icon">🧢</span> Gorras</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="gorras">
+      <div class="card-img">
+        <div class="card-img-inner">🧢</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Gorras</div>
+        <div class="card-name">Gorra Cosentido – Negra</div>
+        <div class="card-desc">Bordado premium, tela de alta calidad. Ajustable. Talla única.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Gorra%20Cosentido%20Negra%20🧢" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="gorras">
+      <div class="card-img">
+        <div class="card-img-inner">👒</div>
+        <span class="badge">Edición Especial</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Gorras</div>
+        <div class="card-name">Gorra Cosentido – Blanca</div>
+        <div class="card-desc">Edición especial. Logo bordado en rosa. Perfecta para regalar.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Gorra%20Cosentido%20Blanca%20👒" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PIÑATERÍA ADULTA -->
+  <h2 class="section-title" id="sec-pinateria"><span class="icon">🎉</span> Piñatería Adulta</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="pinateria">
+      <div class="card-img">
+        <div class="card-img-inner">🎊</div>
+        <span class="badge">Popular</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Piñatería</div>
+        <div class="card-name">Kit Decoración Adulta</div>
+        <div class="card-desc">Globos, serpentinas y decoraciones temáticas para fiestas de adultos.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Decoración%20Adulta%20🎊" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="pinateria">
+      <div class="card-img">
+        <div class="card-img-inner">🎁</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Piñatería</div>
+        <div class="card-name">Piñata Sorpresa Adulta</div>
+        <div class="card-desc">Rellena con productos Cosentido. Personalizable. ¡Ideal para cumpleaños!</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Piñata%20Sorpresa%20Adulta%20🎁" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="pinateria">
+      <div class="card-img">
+        <div class="card-img-inner">🎀</div>
+        <span class="badge">Nuevo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Piñatería</div>
+        <div class="card-name">Set Globos XXX</div>
+        <div class="card-desc">Pack de globos temáticos para fiestas de despedida o aniversario.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Set%20Globos%20XXX%20🎀" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JUEGOS PARA PAREJAS -->
+  <h2 class="section-title" id="sec-juegos"><span class="icon">🎲</span> Juegos para Parejas / Fiestas</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="juegos">
+      <div class="card-img">
+        <div class="card-img-inner">🎲</div>
+        <span class="badge">Best Seller</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos</div>
+        <div class="card-name">Dados Traviesos</div>
+        <div class="card-desc">Set de dados con acciones y zonas del cuerpo. Diversión garantizada.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20los%20Dados%20Traviesos%20🎲" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="juegos">
+      <div class="card-img">
+        <div class="card-img-inner">🃏</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos</div>
+        <div class="card-name">Cartas Atrevidas</div>
+        <div class="card-desc">50 retos y verdades picantes. Para parejas o grupos. Mayores de 18.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20las%20Cartas%20Atrevidas%20🃏" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="juegos">
+      <div class="card-img">
+        <div class="card-img-inner">🎯</div>
+        <span class="badge">Nuevo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos</div>
+        <div class="card-name">Ruleta de Retos</div>
+        <div class="card-desc">Ruleta giratoria con retos para parejas. Incluye 40 misiones.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Ruleta%20de%20Retos%20🎯" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JUEGOS PARA BEBER -->
+  <h2 class="section-title" id="sec-bebidas"><span class="icon">🍹</span> Juegos para Beber</h2>
+  <div class="grid">
+
+    <div class="card" data-cat="bebidas">
+      <div class="card-img">
+        <div class="card-img-inner">🍺</div>
+        <span class="badge">Best Seller</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos para Beber</div>
+        <div class="card-name">Beer Pong Adulto</div>
+        <div class="card-desc">Set completo con vasos, pelota y retos en cada vaso. 18+ únicamente.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Beer%20Pong%20Adulto%20🍺" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="bebidas">
+      <div class="card-img">
+        <div class="card-img-inner">🥂</div>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos para Beber</div>
+        <div class="card-name">Shots Ruleta</div>
+        <div class="card-desc">Ruleta giratoria con 16 chupitos. Incluye retos escritos en cada espacio.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Shots%20Ruleta%20🥂" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-cat="bebidas">
+      <div class="card-img">
+        <div class="card-img-inner">🎱</div>
+        <span class="badge">Nuevo</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat">Juegos para Beber</div>
+        <div class="card-name">Cartas "Yo Nunca"</div>
+        <div class="card-desc">Versión adulta + picante. 80 cartas, perfectas para romper el hielo.</div>
+        <div class="card-footer">
+          <div class="card-price">$XX <span>USD</span></div>
+          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20las%20Cartas%20Yo%20Nunca%20🎱" target="_blank" class="btn-order">Pedir</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-tooltip">💬 ¡Escríbenos por WhatsApp!</div>
+<a class="wa-float" href="https://wa.me/TUNUMERO?text=Hola!%20Quiero%20conocer%20más%20sobre%20los%20productos%20de%20Cosentido%20😊" target="_blank" title="Pedir por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.85L.057 23.885a.5.5 0 00.606.64l6.204-1.627A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.866 9.866 0 01-5.031-1.376l-.36-.214-3.732.979.997-3.647-.235-.374A9.868 9.868 0 012.1 12C2.1 6.534 6.534 2.1 12 2.1S21.9 6.534 21.9 12 17.466 21.9 12 21.9z"/>
+  </svg>
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Cosentido</strong> &nbsp;|&nbsp; Todo para vivir momentos únicos ✦ &nbsp;|&nbsp; +18 &nbsp;|&nbsp; Compra discreta y segura
+  <br/><br/>
+  <span style="font-size:0.72rem;opacity:0.6;">Para pedidos y consultas escríbenos por WhatsApp 🤍</span>
+</footer>
+
+<!-- SCRIPT FILTROS -->
+<script>
+  function filterCat(cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+
+    const cards = document.querySelectorAll('.card');
+    const sections = document.querySelectorAll('.section-title');
+
+    if (cat === 'all') {
+      cards.forEach(c => c.style.display = '');
+      sections.forEach(s => {
+        s.style.display = '';
+        s.nextElementSibling.style.display = '';
+      });
+      return;
+    }
+
+    // Hide all first
+    cards.forEach(c => c.style.display = 'none');
+    sections.forEach(s => {
+      s.style.display = 'none';
+      s.nextElementSibling.style.display = 'none';
+    });
+
+    // Show matching
+    document.querySelectorAll(`.card[data-cat="${cat}"]`).forEach(c => {
+      c.style.display = '';
+    });
+
+    // Show relevant section header
+    const secMap = {
+      juguetes: 'sec-juguetes',
+      aceites: 'sec-aceites',
+      gorras: 'sec-gorras',
+      pinateria: 'sec-pinateria',
+      juegos: 'sec-juegos',
+      bebidas: 'sec-bebidas',
+    };
+    if (secMap[cat]) {
+      const sec = document.getElementById(secMap[cat]);
+      if (sec) {
+        sec.style.display = '';
+        sec.nextElementSibling.style.display = '';
+      }
+    }
+  }
+</script>
+
+</body>
+</html>
