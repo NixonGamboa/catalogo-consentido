@@ -1,5 +1,10 @@
 const CATALOG_DATA = {
   "whatsapp": "573143358926",
+  "social": {
+    "facebook":  "https://www.facebook.com/share/1NDSEfXYeV/",
+    "instagram": "https://www.instagram.com/consentido303?igsh=ODNya3N6ZzNsdGZn",
+    "tiktok":    "https://www.tiktok.com/@perfilconsentido?_r=1&_t=ZS-95rlCgVBf29"
+  },
   "categories": [
     { "id": "juguetes",      "label": "💕 Juguetes",        "title": "Juguetes para Parejas" },
     { "id": "lubricantes",   "label": "💧 Lubricantes",     "title": "Lubricantes" },
