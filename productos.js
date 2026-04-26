@@ -1,5 +1,5 @@
 const CATALOG_DATA = {
-  "whatsapp": "573143358929",
+  "whatsapp": "573143358926",
   "categories": [
     { "id": "juguetes",      "label": "💕 Juguetes",        "title": "Juguetes para Parejas" },
     { "id": "lubricantes",   "label": "💧 Lubricantes",     "title": "Lubricantes" },
