@@ -343,18 +343,18 @@
     .social-pill.ig:hover { box-shadow: 0 8px 24px rgba(220,39,67,0.6); }
     .social-pill.tt:hover { box-shadow: 0 8px 24px rgba(238,29,82,0.5); }
 
-    /* ── SOCIAL FLOAT (izquierda) ── */
+    /* ── SOCIAL FLOAT (sobre WhatsApp) ── */
     .social-float {
       position: fixed;
-      left: 16px;
-      bottom: 28px;
+      right: 28px;
+      bottom: 96px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       z-index: 999;
     }
     .soc-icon {
-      width: 46px; height: 46px;
+      width: 44px; height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -385,7 +385,6 @@
   <div class="tagline">✦ Todo para vivir momentos únicos ✦</div>
   <div class="divider"></div>
   <p class="subtitle">Tu tienda de confianza para parejas. Productos íntimos, accesorios y diversión en un solo lugar.</p>
-  <div class="social-bar" id="social-hero"></div>
 </header>
 
 <!-- FILTROS (poblado por JS) -->
@@ -439,13 +438,11 @@
   function buildSocial(social) {
     if (!social) return;
     const keys = ['facebook', 'instagram', 'tiktok'];
-    const hero   = document.getElementById('social-hero');
     const float  = document.getElementById('social-float');
     const footer = document.getElementById('social-footer');
     keys.forEach(key => {
       if (!social[key]) return;
       const m = SOCIAL_META[key];
-      if (hero)   hero.innerHTML   += `<a href="${social[key]}" target="_blank" rel="noopener" class="social-pill ${m.cls}">${m.icon} ${m.label}</a>`;
       if (float)  float.innerHTML  += `<a href="${social[key]}" target="_blank" rel="noopener" class="soc-icon ${m.cls}" title="${m.label}">${m.icon}</a>`;
       if (footer) footer.innerHTML += `<a href="${social[key]}" target="_blank" rel="noopener" class="social-pill ${m.cls}" style="font-size:0.75rem;padding:7px 15px;">${m.icon} ${m.label}</a>`;
     });
