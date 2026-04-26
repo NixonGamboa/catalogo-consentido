@@ -182,6 +182,10 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
+    .badge-agotado {
+      background: #555;
+      color: #ccc;
+    }
     .card-body {
       padding: 14px 16px 16px;
     }
@@ -240,6 +244,11 @@
       background: var(--primary-dark);
       box-shadow: 0 4px 12px rgba(155,34,81,0.5);
       transform: scale(1.05);
+    }
+    .btn-order.disabled {
+      background: #444;
+      color: #888;
+      pointer-events: none;
     }
 
     /* ── WHATSAPP FLOAT ── */
@@ -317,349 +326,25 @@
   <p class="subtitle">Tu tienda de confianza para parejas. Productos íntimos, accesorios y diversión en un solo lugar.</p>
 </header>
 
-<!-- FILTROS -->
+<!-- FILTROS (poblado por JS) -->
 <div class="filters-wrap">
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterCat('all')">🔥 Todo</button>
-    <button class="filter-btn" onclick="filterCat('juguetes')">💕 Juguetes</button>
-    <button class="filter-btn" onclick="filterCat('aceites')">🌹 Aceites</button>
-    <button class="filter-btn" onclick="filterCat('gorras')">🧢 Gorras</button>
-    <button class="filter-btn" onclick="filterCat('pinateria')">🎉 Piñatería Adulta</button>
-    <button class="filter-btn" onclick="filterCat('juegos')">🎲 Juegos</button>
-    <button class="filter-btn" onclick="filterCat('bebidas')">🍹 Juegos para Beber</button>
-  </div>
+  <div class="filters" id="filter-bar"></div>
 </div>
 
-<!-- CATÁLOGO -->
-<main class="catalog" id="catalog">
-
-  <!-- JUGUETES PARA PAREJAS -->
-  <h2 class="section-title" id="sec-juguetes"><span class="icon">💕</span> Juguetes para Parejas</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="juguetes">
-      <div class="card-img">
-        <div class="card-img-inner">🌸</div>
-        <span class="badge">Popular</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juguetes</div>
-        <div class="card-name">Kit Básico de Parejas</div>
-        <div class="card-desc">Incluye todo lo esencial para explorar juntos. Diseño discreto y elegante.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Básico%20de%20Parejas%20💕" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="juguetes">
-      <div class="card-img">
-        <div class="card-img-inner">🌺</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juguetes</div>
-        <div class="card-name">Vibrador Dual</div>
-        <div class="card-desc">Estimulación doble con múltiples velocidades. Silicona médica 100% segura.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Vibrador%20Dual%20🌺" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="juguetes">
-      <div class="card-img">
-        <div class="card-img-inner">🔮</div>
-        <span class="badge">Nuevo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juguetes</div>
-        <div class="card-name">Bala Vibradora</div>
-        <div class="card-desc">Pequeña, potente y recargable. Perfecta para principiantes y aventureros.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Bala%20Vibradora%20🔮" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="juguetes">
-      <div class="card-img">
-        <div class="card-img-inner">❤️‍🔥</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juguetes</div>
-        <div class="card-name">Set de Esposas + Venda</div>
-        <div class="card-desc">Accesorios de rol suaves y seguros. Incluye estuche de regalo.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Set%20de%20Esposas%20❤️‍🔥" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ACEITES PARA MASAJES -->
-  <h2 class="section-title" id="sec-aceites"><span class="icon">🌹</span> Aceites para Masajes</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="aceites">
-      <div class="card-img">
-        <div class="card-img-inner">🌹</div>
-        <span class="badge">Popular</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Aceites</div>
-        <div class="card-name">Aceite de Rosa & Vainilla</div>
-        <div class="card-desc">Aroma irresistible, efecto calor al soplar. 60ml. Comestible.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Aceite%20de%20Rosa%20y%20Vainilla%20🌹" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="aceites">
-      <div class="card-img">
-        <div class="card-img-inner">🍓</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Aceites</div>
-        <div class="card-name">Aceite de Fresa</div>
-        <div class="card-desc">Suaviza la piel, aroma dulce y frutal. Efecto tibio. Comestible.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Aceite%20de%20Fresa%20🍓" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="aceites">
-      <div class="card-img">
-        <div class="card-img-inner">🫐</div>
-        <span class="badge">Nuevo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Aceites</div>
-        <div class="card-name">Kit Aceites x3 Sabores</div>
-        <div class="card-desc">Fresa, vainilla y mora azul. Ideal como regalo de pareja.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Aceites%20x3%20🫐" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- GORRAS -->
-  <h2 class="section-title" id="sec-gorras"><span class="icon">🧢</span> Gorras</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="gorras">
-      <div class="card-img">
-        <div class="card-img-inner">🧢</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Gorras</div>
-        <div class="card-name">Gorra Cosentido – Negra</div>
-        <div class="card-desc">Bordado premium, tela de alta calidad. Ajustable. Talla única.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Gorra%20Cosentido%20Negra%20🧢" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="gorras">
-      <div class="card-img">
-        <div class="card-img-inner">👒</div>
-        <span class="badge">Edición Especial</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Gorras</div>
-        <div class="card-name">Gorra Cosentido – Blanca</div>
-        <div class="card-desc">Edición especial. Logo bordado en rosa. Perfecta para regalar.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Gorra%20Cosentido%20Blanca%20👒" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- PIÑATERÍA ADULTA -->
-  <h2 class="section-title" id="sec-pinateria"><span class="icon">🎉</span> Piñatería Adulta</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="pinateria">
-      <div class="card-img">
-        <div class="card-img-inner">🎊</div>
-        <span class="badge">Popular</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Piñatería</div>
-        <div class="card-name">Kit Decoración Adulta</div>
-        <div class="card-desc">Globos, serpentinas y decoraciones temáticas para fiestas de adultos.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Kit%20Decoración%20Adulta%20🎊" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="pinateria">
-      <div class="card-img">
-        <div class="card-img-inner">🎁</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Piñatería</div>
-        <div class="card-name">Piñata Sorpresa Adulta</div>
-        <div class="card-desc">Rellena con productos Cosentido. Personalizable. ¡Ideal para cumpleaños!</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Piñata%20Sorpresa%20Adulta%20🎁" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="pinateria">
-      <div class="card-img">
-        <div class="card-img-inner">🎀</div>
-        <span class="badge">Nuevo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Piñatería</div>
-        <div class="card-name">Set Globos XXX</div>
-        <div class="card-desc">Pack de globos temáticos para fiestas de despedida o aniversario.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Set%20Globos%20XXX%20🎀" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- JUEGOS PARA PAREJAS -->
-  <h2 class="section-title" id="sec-juegos"><span class="icon">🎲</span> Juegos para Parejas / Fiestas</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="juegos">
-      <div class="card-img">
-        <div class="card-img-inner">🎲</div>
-        <span class="badge">Best Seller</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos</div>
-        <div class="card-name">Dados Traviesos</div>
-        <div class="card-desc">Set de dados con acciones y zonas del cuerpo. Diversión garantizada.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20los%20Dados%20Traviesos%20🎲" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="juegos">
-      <div class="card-img">
-        <div class="card-img-inner">🃏</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos</div>
-        <div class="card-name">Cartas Atrevidas</div>
-        <div class="card-desc">50 retos y verdades picantes. Para parejas o grupos. Mayores de 18.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20las%20Cartas%20Atrevidas%20🃏" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="juegos">
-      <div class="card-img">
-        <div class="card-img-inner">🎯</div>
-        <span class="badge">Nuevo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos</div>
-        <div class="card-name">Ruleta de Retos</div>
-        <div class="card-desc">Ruleta giratoria con retos para parejas. Incluye 40 misiones.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Ruleta%20de%20Retos%20🎯" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- JUEGOS PARA BEBER -->
-  <h2 class="section-title" id="sec-bebidas"><span class="icon">🍹</span> Juegos para Beber</h2>
-  <div class="grid">
-
-    <div class="card" data-cat="bebidas">
-      <div class="card-img">
-        <div class="card-img-inner">🍺</div>
-        <span class="badge">Best Seller</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos para Beber</div>
-        <div class="card-name">Beer Pong Adulto</div>
-        <div class="card-desc">Set completo con vasos, pelota y retos en cada vaso. 18+ únicamente.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20el%20Beer%20Pong%20Adulto%20🍺" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="bebidas">
-      <div class="card-img">
-        <div class="card-img-inner">🥂</div>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos para Beber</div>
-        <div class="card-name">Shots Ruleta</div>
-        <div class="card-desc">Ruleta giratoria con 16 chupitos. Incluye retos escritos en cada espacio.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20la%20Shots%20Ruleta%20🥂" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" data-cat="bebidas">
-      <div class="card-img">
-        <div class="card-img-inner">🎱</div>
-        <span class="badge">Nuevo</span>
-      </div>
-      <div class="card-body">
-        <div class="card-cat">Juegos para Beber</div>
-        <div class="card-name">Cartas "Yo Nunca"</div>
-        <div class="card-desc">Versión adulta + picante. 80 cartas, perfectas para romper el hielo.</div>
-        <div class="card-footer">
-          <div class="card-price">$XX <span>USD</span></div>
-          <a href="https://wa.me/TUNUMERO?text=Hola!%20Me%20interesa%20las%20Cartas%20Yo%20Nunca%20🎱" target="_blank" class="btn-order">Pedir</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</main>
+<!-- CATÁLOGO (poblado por JS) -->
+<main class="catalog" id="catalog"></main>
 
 <!-- WHATSAPP FLOAT -->
 <div class="wa-tooltip">💬 ¡Escríbenos por WhatsApp!</div>
-<a class="wa-float" href="https://wa.me/TUNUMERO?text=Hola!%20Quiero%20conocer%20más%20sobre%20los%20productos%20de%20Cosentido%20😊" target="_blank" title="Pedir por WhatsApp">
+<a class="wa-float" id="wa-main" href="#" target="_blank" title="Pedir por WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="28" height="28">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.85L.057 23.885a.5.5 0 00.606.64l6.204-1.627A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.9a9.866 9.866 0 01-5.031-1.376l-.36-.214-3.732.979.997-3.647-.235-.374A9.868 9.868 0 012.1 12C2.1 6.534 6.534 2.1 12 2.1S21.9 6.534 21.9 12 17.466 21.9 12 21.9z"/>
   </svg>
 </a>
+
+<!-- DATOS DEL CATÁLOGO -->
+<script src="productos.js"></script>
 
 <!-- FOOTER -->
 <footer>
@@ -668,9 +353,81 @@
   <span style="font-size:0.72rem;opacity:0.6;">Para pedidos y consultas escríbenos por WhatsApp 🤍</span>
 </footer>
 
-<!-- SCRIPT FILTROS -->
 <script>
-  function filterCat(cat) {
+  const CATEGORY_LABELS = {
+    juguetes:      'Juguetes',
+    lubricantes:   'Lubricantes',
+    aceites:       'Aceites',
+    masajes:       'Velas & Masajes',
+    potenciadores: 'Potenciadores',
+    accesorios:    'Accesorios',
+  };
+
+  function formatPrice(n) {
+    return '$' + n.toLocaleString('es-CO');
+  }
+
+  function buildCard(p, waNumber) {
+    const agotado = p.stock === 0;
+    const badgeText = agotado ? 'Agotado' : (p.badge || '');
+    const badgeClass = agotado ? 'badge badge-agotado' : 'badge';
+    const badgeHtml = badgeText ? `<span class="${badgeClass}">${badgeText}</span>` : '';
+    const descHtml = p.description ? `<div class="card-desc">${p.description}</div>` : '';
+    const catLabel = CATEGORY_LABELS[p.catalogCategory] || p.catalogCategory;
+    const waText = encodeURIComponent(`Hola! Me interesa el ${p.name} (${p.sku}) 💕`);
+    const waHref = `https://wa.me/${waNumber}?text=${waText}`;
+    const btnHtml = agotado
+      ? `<span class="btn-order disabled">Agotado</span>`
+      : `<a href="${waHref}" target="_blank" class="btn-order">Pedir</a>`;
+
+    return `
+      <div class="card" data-cat="${p.catalogCategory}">
+        <div class="card-img">
+          <div class="card-img-inner">${p.emoji}</div>
+          ${badgeHtml}
+        </div>
+        <div class="card-body">
+          <div class="card-cat">${catLabel}</div>
+          <div class="card-name">${p.name}</div>
+          ${descHtml}
+          <div class="card-footer">
+            <div class="card-price">${formatPrice(p.price)} <span>COP</span></div>
+            ${btnHtml}
+          </div>
+        </div>
+      </div>`;
+  }
+
+  function renderCatalog(data) {
+    const { whatsapp, categories, products } = data;
+
+    // Update main WA button
+    const waMain = document.getElementById('wa-main');
+    waMain.href = `https://wa.me/${whatsapp}?text=${encodeURIComponent('Hola! Quiero conocer más sobre los productos de Cosentido 😊')}`;
+
+    // Build filter bar
+    const filterBar = document.getElementById('filter-bar');
+    filterBar.innerHTML =
+      `<button class="filter-btn active" onclick="filterCat(event,'all')">🔥 Todo</button>` +
+      categories.map(c =>
+        `<button class="filter-btn" onclick="filterCat(event,'${c.id}')">${c.label}</button>`
+      ).join('');
+
+    // Build catalog sections
+    const catalog = document.getElementById('catalog');
+    catalog.innerHTML = categories.map(c => {
+      const catProducts = products.filter(p => p.catalogCategory === c.id);
+      if (!catProducts.length) return '';
+      const cards = catProducts.map(p => buildCard(p, whatsapp)).join('');
+      return `
+        <h2 class="section-title" id="sec-${c.id}">
+          <span class="icon">${c.label.split(' ')[0]}</span> ${c.title}
+        </h2>
+        <div class="grid" id="grid-${c.id}">${cards}</div>`;
+    }).join('');
+  }
+
+  function filterCat(event, cat) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     event.target.classList.add('active');
 
@@ -686,35 +443,22 @@
       return;
     }
 
-    // Hide all first
     cards.forEach(c => c.style.display = 'none');
     sections.forEach(s => {
       s.style.display = 'none';
       s.nextElementSibling.style.display = 'none';
     });
 
-    // Show matching
-    document.querySelectorAll(`.card[data-cat="${cat}"]`).forEach(c => {
-      c.style.display = '';
-    });
+    document.querySelectorAll(`.card[data-cat="${cat}"]`).forEach(c => c.style.display = '');
 
-    // Show relevant section header
-    const secMap = {
-      juguetes: 'sec-juguetes',
-      aceites: 'sec-aceites',
-      gorras: 'sec-gorras',
-      pinateria: 'sec-pinateria',
-      juegos: 'sec-juegos',
-      bebidas: 'sec-bebidas',
-    };
-    if (secMap[cat]) {
-      const sec = document.getElementById(secMap[cat]);
-      if (sec) {
-        sec.style.display = '';
-        sec.nextElementSibling.style.display = '';
-      }
+    const sec = document.getElementById(`sec-${cat}`);
+    if (sec) {
+      sec.style.display = '';
+      sec.nextElementSibling.style.display = '';
     }
   }
+
+  renderCatalog(CATALOG_DATA);
 </script>
 
 </body>

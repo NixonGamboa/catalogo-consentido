@@ -1,0 +1,753 @@
+{
+  "whatsapp": "573XXXXXXXXXX",
+  "categories": [
+    { "id": "juguetes",      "label": "💕 Juguetes",        "title": "Juguetes para Parejas" },
+    { "id": "lubricantes",   "label": "💧 Lubricantes",     "title": "Lubricantes" },
+    { "id": "aceites",       "label": "🌹 Aceites",         "title": "Aceites para Masajes" },
+    { "id": "masajes",       "label": "🕯️ Velas & Masajes", "title": "Velas & Masajes" },
+    { "id": "potenciadores", "label": "⚡ Potenciadores",   "title": "Potenciadores" },
+    { "id": "accesorios",    "label": "🌸 Accesorios",      "title": "Accesorios Sensuales" }
+  ],
+  "products": [
+    {
+      "sku": "CON-0001",
+      "name": "Mini bala vibrador",
+      "description": "Vibrador tipo bala",
+      "price": 21000,
+      "stock": 1,
+      "catalogCategory": "juguetes",
+      "emoji": "💕",
+      "badge": null
+    },
+    {
+      "sku": "CON-0002",
+      "name": "Anillo vibrador",
+      "description": "Anillo con vibración",
+      "price": 12000,
+      "stock": 3,
+      "catalogCategory": "juguetes",
+      "emoji": "💍",
+      "badge": null
+    },
+    {
+      "sku": "CON-0003",
+      "name": "Vibrador Teseo pilot",
+      "description": null,
+      "price": 32000,
+      "stock": 2,
+      "catalogCategory": "juguetes",
+      "emoji": "🔮",
+      "badge": null
+    },
+    {
+      "sku": "CON-0004",
+      "name": "Vibrador Hot (Hitachi Magic)",
+      "description": null,
+      "price": 110000,
+      "stock": 1,
+      "catalogCategory": "juguetes",
+      "emoji": "✨",
+      "badge": "Best Seller"
+    },
+    {
+      "sku": "CON-0005",
+      "name": "Vibrador We Love (Succionador Nyla)",
+      "description": "Succionador",
+      "price": 85000,
+      "stock": 1,
+      "catalogCategory": "juguetes",
+      "emoji": "💜",
+      "badge": null
+    },
+    {
+      "sku": "CON-0006",
+      "name": "Vibrador Wonderful (labial discreto)",
+      "description": "Vibrador con apariencia de labial",
+      "price": 28000,
+      "stock": 2,
+      "catalogCategory": "juguetes",
+      "emoji": "💋",
+      "badge": null
+    },
+    {
+      "sku": "CON-0007",
+      "name": "Plug silicona Talla S",
+      "description": null,
+      "price": 35000,
+      "stock": 1,
+      "catalogCategory": "juguetes",
+      "emoji": "🌸",
+      "badge": null
+    },
+    {
+      "sku": "CON-0008",
+      "name": "Plug metálico Talla S",
+      "description": null,
+      "price": 35000,
+      "stock": 1,
+      "catalogCategory": "juguetes",
+      "emoji": "🌹",
+      "badge": null
+    },
+    {
+      "sku": "CON-0013",
+      "name": "Kit salvavidas",
+      "description": null,
+      "price": 48000,
+      "stock": 2,
+      "catalogCategory": "juguetes",
+      "emoji": "🎁",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0014",
+      "name": "Perlas Ball Exotic",
+      "description": "Perlas rellenas de aceite que se revientan con el calor",
+      "price": 20000,
+      "stock": 2,
+      "catalogCategory": "juguetes",
+      "emoji": "🫧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0017",
+      "name": "Lubricante Sex Love 10ml Multi O Cold Frio",
+      "description": null,
+      "price": 8000,
+      "stock": 4,
+      "catalogCategory": "lubricantes",
+      "emoji": "❄️",
+      "badge": null
+    },
+    {
+      "sku": "CON-0018",
+      "name": "Lubricante Sex Love 10ml Strech Estrechante",
+      "description": null,
+      "price": 8000,
+      "stock": 8,
+      "catalogCategory": "lubricantes",
+      "emoji": "💫",
+      "badge": null
+    },
+    {
+      "sku": "CON-0019",
+      "name": "Lubricante Sex Love 10ml Multi O Caliente",
+      "description": null,
+      "price": 8000,
+      "stock": 6,
+      "catalogCategory": "lubricantes",
+      "emoji": "🔥",
+      "badge": null
+    },
+    {
+      "sku": "CON-0020",
+      "name": "Lubricante Sabores Sex Love 10ml",
+      "description": null,
+      "price": 8000,
+      "stock": 10,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍭",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0083",
+      "name": "Lubricante Neutro Sex Love 10ml",
+      "description": null,
+      "price": 8000,
+      "stock": 3,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0023",
+      "name": "Lubricante Sex Love 120ml Neutro (vaginal)",
+      "description": null,
+      "price": 25000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0024",
+      "name": "Lubricante Sex Love 120ml Íntimo (Anal)",
+      "description": null,
+      "price": 31000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0025",
+      "name": "Lubricante Caliente Sex Love 30ml",
+      "description": null,
+      "price": 15000,
+      "stock": 5,
+      "catalogCategory": "lubricantes",
+      "emoji": "🔥",
+      "badge": null
+    },
+    {
+      "sku": "CON-0026",
+      "name": "Lubricante Cannabis Sex Love 30ml",
+      "description": null,
+      "price": 15000,
+      "stock": 4,
+      "catalogCategory": "lubricantes",
+      "emoji": "🌿",
+      "badge": null
+    },
+    {
+      "sku": "CON-0033",
+      "name": "Lubricante Electrizante Sex Love 37ml",
+      "description": null,
+      "price": 25000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "⚡",
+      "badge": null
+    },
+    {
+      "sku": "CON-0034",
+      "name": "Lubricante Sex Love con dados 38ml",
+      "description": null,
+      "price": 25000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "🎲",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0038",
+      "name": "Lubricante Elixir 30ml Fresa bombón",
+      "description": null,
+      "price": 28000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍓",
+      "badge": null
+    },
+    {
+      "sku": "CON-0039",
+      "name": "Lubricante Elixir 30ml Sandía",
+      "description": null,
+      "price": 28000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍉",
+      "badge": null
+    },
+    {
+      "sku": "CON-0040",
+      "name": "Lubricante Elixir 30ml Whisky",
+      "description": null,
+      "price": 28000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "🥃",
+      "badge": null
+    },
+    {
+      "sku": "CON-0063",
+      "name": "Lubricante Sen Intimo 7ml Chocolate",
+      "description": null,
+      "price": 12000,
+      "stock": 4,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍫",
+      "badge": null
+    },
+    {
+      "sku": "CON-0064",
+      "name": "Lubricante Sen Intimo 7ml Whisky",
+      "description": null,
+      "price": 12000,
+      "stock": 5,
+      "catalogCategory": "lubricantes",
+      "emoji": "🥃",
+      "badge": null
+    },
+    {
+      "sku": "CON-0065",
+      "name": "Lubricante Sen Intimo 7ml Caramelo",
+      "description": null,
+      "price": 12000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍬",
+      "badge": null
+    },
+    {
+      "sku": "CON-0084",
+      "name": "Lubricante Sen Intimo 7ml Neutro",
+      "description": null,
+      "price": 12000,
+      "stock": 4,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0053",
+      "name": "Lubricante Sen Intimo 30ml Café moka",
+      "description": null,
+      "price": 31000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "☕",
+      "badge": null
+    },
+    {
+      "sku": "CON-0054",
+      "name": "Lubricante Sen Intimo 30ml Whisky",
+      "description": null,
+      "price": 31000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "🥃",
+      "badge": null
+    },
+    {
+      "sku": "CON-0055",
+      "name": "Lubricante Sen Intimo 30ml Chocolate",
+      "description": null,
+      "price": 31000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "🍫",
+      "badge": null
+    },
+    {
+      "sku": "CON-0056",
+      "name": "Lubricante Sen Intimo 30ml Neutro",
+      "description": null,
+      "price": 32000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0057",
+      "name": "Lubricante Sen Intimo 30ml Multiorgasmos",
+      "description": null,
+      "price": 44000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "🌟",
+      "badge": null
+    },
+    {
+      "sku": "CON-0058",
+      "name": "Lubricante Sen Intimo 30ml Frío/Calor",
+      "description": null,
+      "price": 50000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "🌡️",
+      "badge": null
+    },
+    {
+      "sku": "CON-0059",
+      "name": "Lubricante Sen Intimo 30ml Anal",
+      "description": null,
+      "price": 46000,
+      "stock": 2,
+      "catalogCategory": "lubricantes",
+      "emoji": "💧",
+      "badge": null
+    },
+    {
+      "sku": "CON-0060",
+      "name": "Lubricante Sen Intimo 30ml Estrechante",
+      "description": null,
+      "price": 46000,
+      "stock": 3,
+      "catalogCategory": "lubricantes",
+      "emoji": "💫",
+      "badge": null
+    },
+    {
+      "sku": "CON-0061",
+      "name": "Lubricante Sen Intimo 30ml Garganta profunda",
+      "description": null,
+      "price": 46000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "💋",
+      "badge": null
+    },
+    {
+      "sku": "CON-0062",
+      "name": "Lubricante Sen Intimo 5ml Electrizante",
+      "description": "Vibrador líquido",
+      "price": 46000,
+      "stock": 1,
+      "catalogCategory": "lubricantes",
+      "emoji": "⚡",
+      "badge": null
+    },
+    {
+      "sku": "CON-0066",
+      "name": "Aceite corporal Natural Sant 250ml Uva",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🍇",
+      "badge": null
+    },
+    {
+      "sku": "CON-0067",
+      "name": "Aceite corporal Natural Sant 250ml Coco",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🥥",
+      "badge": null
+    },
+    {
+      "sku": "CON-0068",
+      "name": "Aceite corporal Natural Sant 250ml Cannabis",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🌿",
+      "badge": null
+    },
+    {
+      "sku": "CON-0069",
+      "name": "Aceite corporal Natural Sant 250ml Café",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "☕",
+      "badge": null
+    },
+    {
+      "sku": "CON-0070",
+      "name": "Aceite corporal Natural Sant 250ml Romero",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🌿",
+      "badge": null
+    },
+    {
+      "sku": "CON-0071",
+      "name": "Aceite corporal Natural Sant 250ml Rosa mosqueta",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🌹",
+      "badge": null
+    },
+    {
+      "sku": "CON-0072",
+      "name": "Aceite corporal Natural Sant 250ml Almendras",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🌰",
+      "badge": null
+    },
+    {
+      "sku": "CON-0073",
+      "name": "Aceite corporal Natural Sant 250ml Caléndula",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🌼",
+      "badge": null
+    },
+    {
+      "sku": "CON-0074",
+      "name": "Aceite corporal Natural Sant 250ml Naranja",
+      "description": null,
+      "price": 22000,
+      "stock": 1,
+      "catalogCategory": "aceites",
+      "emoji": "🍊",
+      "badge": null
+    },
+    {
+      "sku": "CON-0075",
+      "name": "Aceite corporal Natural Sant 120ml Uva",
+      "description": null,
+      "price": 13000,
+      "stock": 2,
+      "catalogCategory": "aceites",
+      "emoji": "🍇",
+      "badge": null
+    },
+    {
+      "sku": "CON-0076",
+      "name": "Aceite corporal Natural Sant 120ml Coco",
+      "description": null,
+      "price": 13000,
+      "stock": 2,
+      "catalogCategory": "aceites",
+      "emoji": "🥥",
+      "badge": null
+    },
+    {
+      "sku": "CON-0077",
+      "name": "Aceite corporal Natural Sant 120ml Naranja",
+      "description": null,
+      "price": 13000,
+      "stock": 3,
+      "catalogCategory": "aceites",
+      "emoji": "🍊",
+      "badge": null
+    },
+    {
+      "sku": "CON-0078",
+      "name": "Aceite corporal Natural Sant 120ml Romero",
+      "description": null,
+      "price": 13000,
+      "stock": 2,
+      "catalogCategory": "aceites",
+      "emoji": "🌿",
+      "badge": null
+    },
+    {
+      "sku": "CON-0079",
+      "name": "Aceite corporal Natural Sant 120ml Rosa mosqueta",
+      "description": null,
+      "price": 13000,
+      "stock": 3,
+      "catalogCategory": "aceites",
+      "emoji": "🌹",
+      "badge": null
+    },
+    {
+      "sku": "CON-0080",
+      "name": "Aceite corporal Natural Sant 120ml Café",
+      "description": null,
+      "price": 13000,
+      "stock": 2,
+      "catalogCategory": "aceites",
+      "emoji": "☕",
+      "badge": null
+    },
+    {
+      "sku": "CON-0081",
+      "name": "Aceite corporal Natural Sant 120ml Caléndula",
+      "description": null,
+      "price": 13000,
+      "stock": 3,
+      "catalogCategory": "aceites",
+      "emoji": "🌼",
+      "badge": null
+    },
+    {
+      "sku": "CON-0082",
+      "name": "Aceite corporal Natural Sant 120ml Almendras",
+      "description": null,
+      "price": 13000,
+      "stock": 3,
+      "catalogCategory": "aceites",
+      "emoji": "🌰",
+      "badge": null
+    },
+    {
+      "sku": "CON-0041",
+      "name": "Crema nutritiva vela Sex Love Yerbabuena",
+      "description": null,
+      "price": 24000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "🌿",
+      "badge": null
+    },
+    {
+      "sku": "CON-0042",
+      "name": "Crema nutritiva vela Sex Love Volcano Ice",
+      "description": null,
+      "price": 24000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "❄️",
+      "badge": null
+    },
+    {
+      "sku": "CON-0043",
+      "name": "Crema nutritiva vela Sex Love Coffee Delight",
+      "description": null,
+      "price": 24000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "☕",
+      "badge": null
+    },
+    {
+      "sku": "CON-0044",
+      "name": "Crema nutritiva vela Sex Love Frutos rojos",
+      "description": null,
+      "price": 24000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "🍓",
+      "badge": null
+    },
+    {
+      "sku": "CON-0045",
+      "name": "Crema nutritiva vela Sex Love Baileys",
+      "description": null,
+      "price": 24000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "🥃",
+      "badge": null
+    },
+    {
+      "sku": "CON-0046",
+      "name": "Crema corporal Sex Love 30g Clarifier",
+      "description": null,
+      "price": 23000,
+      "stock": 1,
+      "catalogCategory": "masajes",
+      "emoji": "🌸",
+      "badge": null
+    },
+    {
+      "sku": "CON-0047",
+      "name": "Crema Sex Love 5gr Multi Orgasmo",
+      "description": null,
+      "price": 9000,
+      "stock": 5,
+      "catalogCategory": "masajes",
+      "emoji": "🌟",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0048",
+      "name": "Crema Sex Love 5gr Fusion",
+      "description": null,
+      "price": 9000,
+      "stock": 5,
+      "catalogCategory": "masajes",
+      "emoji": "✨",
+      "badge": null
+    },
+    {
+      "sku": "CON-0049",
+      "name": "Crema Sex Love 5gr Strech",
+      "description": null,
+      "price": 9000,
+      "stock": 5,
+      "catalogCategory": "masajes",
+      "emoji": "💫",
+      "badge": null
+    },
+    {
+      "sku": "CON-0050",
+      "name": "Vela Sen Intimo para masajes Sensual D",
+      "description": null,
+      "price": 40000,
+      "stock": 2,
+      "catalogCategory": "masajes",
+      "emoji": "🕯️",
+      "badge": null
+    },
+    {
+      "sku": "CON-0009",
+      "name": "Powers X Fem",
+      "description": "Potenciador femenino",
+      "price": 11000,
+      "stock": 3,
+      "catalogCategory": "potenciadores",
+      "emoji": "⚡",
+      "badge": null
+    },
+    {
+      "sku": "CON-0010",
+      "name": "Powers X",
+      "description": "Potenciador",
+      "price": 10000,
+      "stock": 9,
+      "catalogCategory": "potenciadores",
+      "emoji": "💪",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0011",
+      "name": "Meromacho",
+      "description": "Potenciador masculino",
+      "price": 6000,
+      "stock": 12,
+      "catalogCategory": "potenciadores",
+      "emoji": "🔥",
+      "badge": "Popular"
+    },
+    {
+      "sku": "CON-0012",
+      "name": "Blow Pop Polvos explosivos",
+      "description": null,
+      "price": 5000,
+      "stock": 5,
+      "catalogCategory": "accesorios",
+      "emoji": "🎆",
+      "badge": null
+    },
+    {
+      "sku": "CON-0016",
+      "name": "Uro OT Probiótico Vaginal",
+      "description": "Probiótico vaginal",
+      "price": 56000,
+      "stock": 1,
+      "catalogCategory": "accesorios",
+      "emoji": "🌸",
+      "badge": null
+    },
+    {
+      "sku": "CON-0036",
+      "name": "Loción Splash Feromonas Sex Love Adán 40ml",
+      "description": null,
+      "price": 21000,
+      "stock": 2,
+      "catalogCategory": "accesorios",
+      "emoji": "🌺",
+      "badge": null
+    },
+    {
+      "sku": "CON-0037",
+      "name": "Loción Splash Feromonas Sex Love Eva 35ml",
+      "description": null,
+      "price": 21000,
+      "stock": 0,
+      "catalogCategory": "accesorios",
+      "emoji": "🌸",
+      "badge": null
+    },
+    {
+      "sku": "CON-0051",
+      "name": "Brillo labial Sen Intimo con feromonas",
+      "description": "Brillo labial con feromonas",
+      "price": 35000,
+      "stock": 1,
+      "catalogCategory": "accesorios",
+      "emoji": "💋",
+      "badge": null
+    },
+    {
+      "sku": "CON-0052",
+      "name": "Toy Cleaner Sen Intimo 30ml",
+      "description": "Limpiador de juguetes",
+      "price": 18000,
+      "stock": 2,
+      "catalogCategory": "accesorios",
+      "emoji": "🧴",
+      "badge": null
+    }
+  ]
+}
