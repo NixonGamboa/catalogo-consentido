@@ -375,9 +375,54 @@
       flex-wrap: wrap;
       margin-bottom: 20px;
     }
+    /* ── BANNER CONSTRUCCIÓN ── */
+    .wip-banner {
+      background: rgba(201,168,76,0.08);
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding: 9px 48px 9px 20px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    .wip-banner .wip-text { opacity: 0.9; }
+    .wip-banner .wip-text strong { font-weight: 600; }
+    .wip-banner a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(232,160,191,0.4);
+    }
+    .wip-banner a:hover { border-bottom-color: var(--accent); }
+    .wip-close {
+      position: absolute;
+      right: 14px; top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--gold);
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0.6;
+      line-height: 1;
+      padding: 4px;
+      transition: opacity 0.2s;
+    }
+    .wip-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
+
+<!-- BANNER TEMPORAL — eliminar cuando haya imágenes reales -->
+<div class="wip-banner" id="wip-banner">
+  <span class="wip-text">
+    ✨ <strong>¡Próximamente!</strong> Estaremos subiendo las fotos reales de nuestros productos — mientras tanto, curiosea el catálogo y
+    <a href="https://wa.me/573143358926?text=Hola!%20Vi%20el%20cat%C3%A1logo%20y%20quiero%20saber%20m%C3%A1s%20%F0%9F%92%95" target="_blank">escríbenos por WhatsApp</a>
+    si algo te llama la atención.
+  </span>
+  <button class="wip-close" onclick="document.getElementById('wip-banner').style.display='none'" title="Cerrar">✕</button>
+</div>
 
 <!-- HERO -->
 <header class="hero">
