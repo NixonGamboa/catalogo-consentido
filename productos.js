@@ -48,7 +48,7 @@ const CATALOG_DATA = {
     { "sku": "CON-0056", "name": "Lubricante Sen Intimo 30ml Neutro", "description": null, "price": 32000, "stock": 1, "catalogCategory": "lubricantes", "emoji": "💧", "badge": null },
     { "sku": "CON-0057", "name": "Lubricante Sen Intimo 30ml Multiorgasmos", "description": null, "price": 44000, "stock": 2, "catalogCategory": "lubricantes", "emoji": "🌟", "badge": null },
     { "sku": "CON-0058", "name": "Lubricante Sen Intimo 30ml Frío/Calor", "description": null, "price": 50000, "stock": 2, "catalogCategory": "lubricantes", "emoji": "🌡️", "badge": null },
-    { "sku": "CON-0059", "name": "Lubricante Sen Intimo 30ml Anal", "description": null, "price": 46000, "stock": 2, "catalogCategory": "lubricantes", "emoji": "💧", "badge": null },
+    { "sku": "CON-0059", "name": "Lubricante Sen Intimo 30ml Anal", "description": null, "price": 46000, "stock": 2, "catalogCategory": "lubricantes", "emoji": "💧", "badge": null, "image": "lubAnalSenIntimo.png" },
     { "sku": "CON-0060", "name": "Lubricante Sen Intimo 30ml Estrechante", "description": null, "price": 46000, "stock": 3, "catalogCategory": "lubricantes", "emoji": "💫", "badge": null },
     { "sku": "CON-0061", "name": "Lubricante Sen Intimo 30ml Garganta profunda", "description": null, "price": 46000, "stock": 1, "catalogCategory": "lubricantes", "emoji": "💋", "badge": null },
     { "sku": "CON-0062", "name": "Lubricante Sen Intimo 5ml Electrizante", "description": "Vibrador líquido", "price": 46000, "stock": 1, "catalogCategory": "lubricantes", "emoji": "⚡", "badge": null },

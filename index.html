@@ -167,6 +167,22 @@
       font-size: 3.5rem;
       background: linear-gradient(135deg, #2a1525, #1a0a12);
     }
+    .card-img.has-img {
+      background-image: url('assets/templates/TemplateClaro.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .card-img-product {
+      position: absolute;
+      width: 75%;
+      height: 78%;
+      object-fit: contain;
+      bottom: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      pointer-events: none;
+    }
     .badge {
       position: absolute;
       top: 10px; right: 10px;
@@ -519,10 +535,15 @@
       ? `<span class="btn-order disabled">Agotado</span>`
       : `<a href="${waHref}" target="_blank" class="btn-order">Pedir</a>`;
 
+    const innerHtml = p.image
+      ? `<img class="card-img-product" src="assets/products/${p.image}" alt="${p.name}">`
+      : `<div class="card-img-inner">${p.emoji}</div>`;
+    const cardImgClass = p.image ? 'card-img has-img' : 'card-img';
+
     return `
       <div class="card" data-cat="${p.catalogCategory}">
-        <div class="card-img">
-          <div class="card-img-inner">${p.emoji}</div>
+        <div class="${cardImgClass}">
+          ${innerHtml}
           ${badgeHtml}
         </div>
         <div class="card-body">
