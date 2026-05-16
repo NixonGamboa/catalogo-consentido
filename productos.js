@@ -39,7 +39,7 @@ const CATALOG_DATA = {
     { "sku": "CON-0121", "name": "Masturbador Lilith", "description": null, "price": 50000, "stock": 2, "catalogCategory": "masturbadores", "emoji": "🌙", "badge": null, "image": "mastur-lust.jpg" },
     { "sku": "CON-0122", "name": "Huevo Masturbador", "description": null, "price": 15000, "stock": 5, "catalogCategory": "masturbadores", "emoji": "🥚", "badge": null },
     { "sku": "CON-0123", "name": "Kit Funda Pene", "description": null, "price": 13000, "stock": 2, "catalogCategory": "masturbadores", "emoji": "🎁", "badge": null },
-    { "sku": "CON-0130", "name": "Funda Pene Stretchy", "description": null, "price": 29000, "stock": 6, "catalogCategory": "masturbadores", "emoji": "🍆", "badge": null },
+    { "sku": "CON-0130", "name": "Funda Pene Stretchy", "description": null, "price": 9000, "stock": 6, "catalogCategory": "masturbadores", "emoji": "🍆", "badge": null },
     { "sku": "CON-0132", "name": "Funda Pene Vibración", "description": null, "price": 15000, "stock": 2, "catalogCategory": "masturbadores", "emoji": "✨", "badge": null },
     { "sku": "CON-0133", "name": "Kit Funda Dedos", "description": null, "price": 13000, "stock": 3, "catalogCategory": "masturbadores", "emoji": "🖐️", "badge": null },
 
