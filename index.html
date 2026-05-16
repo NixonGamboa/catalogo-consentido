@@ -321,6 +321,113 @@
       .wa-tooltip { display: none; }
     }
 
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 4, 8, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      overflow-y: auto;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-card {
+      background: var(--card);
+      border: 1px solid var(--primary);
+      border-radius: 22px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 460px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.7), 0 0 0 1px rgba(155,34,81,0.3);
+      transform: scale(0.94) translateY(10px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      margin: auto;
+    }
+    .modal-overlay.open .modal-card {
+      transform: scale(1) translateY(0);
+    }
+    .modal-card .card {
+      cursor: default;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+    }
+    .modal-card .card:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .modal-card .card-img { aspect-ratio: 1/1; }
+    .modal-card .card-body { padding: 22px 24px 24px; }
+    .modal-card .card-cat {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .modal-card .card-name {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .modal-card .card-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .modal-card .card-price { font-size: 1.5rem; }
+    .modal-card .card-price span { font-size: 0.78rem; }
+    .modal-card .btn-order {
+      padding: 11px 22px;
+      font-size: 0.85rem;
+    }
+    .modal-card .badge {
+      font-size: 0.72rem;
+      padding: 5px 13px;
+      top: 14px; right: 14px;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px; left: 12px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(15, 10, 13, 0.7);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      font-size: 1.1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s, transform 0.2s;
+      z-index: 2;
+    }
+    .modal-close:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+    body.modal-open { overflow: hidden; }
+
+    @media(max-width: 480px) {
+      .modal-overlay { padding: 12px; }
+      .modal-card { max-width: 100%; border-radius: 18px; }
+      .modal-card .card-body { padding: 18px 18px 20px; }
+      .modal-card .card-name { font-size: 1.25rem; }
+      .modal-card .card-price { font-size: 1.3rem; }
+    }
+
     /* ── SOCIAL BAR (hero) ── */
     .social-bar {
       display: flex;
@@ -461,6 +568,11 @@
   </svg>
 </a>
 
+<!-- MODAL PRODUCTO -->
+<div class="modal-overlay" id="product-modal" aria-hidden="true" role="dialog">
+  <div class="modal-card" id="modal-card-content"></div>
+</div>
+
 <!-- DATOS DEL CATÁLOGO -->
 <script src="productos.js"></script>
 
@@ -538,7 +650,7 @@
     const cardImgClass = p.image ? 'card-img has-img' : 'card-img';
 
     return `
-      <div class="card" data-cat="${p.catalogCategory}">
+      <div class="card" data-cat="${p.catalogCategory}" data-sku="${p.sku}">
         <div class="${cardImgClass}">
           ${innerHtml}
           ${badgeHtml}
@@ -555,8 +667,43 @@
       </div>`;
   }
 
+  // ── MODAL DE PRODUCTO ──
+  const PRODUCT_INDEX = {};
+  let WA_NUMBER = '';
+
+  function openProductModal(sku) {
+    const p = PRODUCT_INDEX[sku];
+    if (!p) return;
+    const modal = document.getElementById('product-modal');
+    const content = document.getElementById('modal-card-content');
+    content.innerHTML =
+      `<button class="modal-close" aria-label="Cerrar" onclick="closeProductModal()">✕</button>` +
+      buildCard(p, WA_NUMBER);
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeProductModal() {
+    const modal = document.getElementById('product-modal');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  // Click en backdrop cierra
+  document.getElementById('product-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'product-modal') closeProductModal();
+  });
+  // ESC cierra
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeProductModal();
+  });
+
   function renderCatalog(data) {
     const { whatsapp, categories, products } = data;
+    WA_NUMBER = whatsapp;
+    products.forEach(p => { PRODUCT_INDEX[p.sku] = p; });
 
     // Update main WA button
     const waMain = document.getElementById('wa-main');
@@ -582,6 +729,16 @@
         </h2>
         <div class="grid" id="grid-${c.id}">${cards}</div>`;
     }).join('');
+
+    // Delegar click en cards del catálogo (no en modal)
+    catalog.addEventListener('click', (e) => {
+      // No abrir modal si fue click sobre el botón "Pedir"
+      if (e.target.closest('.btn-order')) return;
+      const card = e.target.closest('.card');
+      if (!card) return;
+      const sku = card.dataset.sku;
+      if (sku) openProductModal(sku);
+    });
   }
 
   function filterCat(event, cat) {
