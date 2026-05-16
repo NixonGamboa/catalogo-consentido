@@ -21,7 +21,7 @@ const CATALOG_DATA = {
     { "sku": "CON-0001", "name": "Mini bala vibrador", "description": "Vibrador tipo bala", "price": 21000, "stock": 6, "catalogCategory": "juguetes", "emoji": "💕", "badge": null, "image": "bala-vibradora.jpg" },
     { "sku": "CON-0002", "name": "Anillo vibrador", "description": "Anillo con vibración", "price": 12000, "stock": 10, "catalogCategory": "juguetes", "emoji": "💍", "badge": null, "image": "anillo-vibrador-.webp" },
     { "sku": "CON-0003", "name": "Vibrador Teseo pilot", "description": null, "price": 32000, "stock": 2, "catalogCategory": "juguetes", "emoji": "🔮", "badge": null, "image": "vibra-teseo.jpg" },
-    { "sku": "CON-0004", "name": "Vibrador Hot (Hitachi Magic)", "description": null, "price": 110000, "stock": 1, "catalogCategory": "juguetes", "emoji": "✨", "badge": "Best Seller", "image": "vibra-hitachi.jpg" },
+    { "sku": "CON-0004", "name": "Vibrador Hitachi mediano", "description": null, "price": 65000, "stock": 1, "catalogCategory": "juguetes", "emoji": "✨", "badge": "Best Seller", "image": "vibra-hitachi.jpg" },
     { "sku": "CON-0005", "name": "Vibrador We Love (Succionador Nyla)", "description": "Succionador", "price": 85000, "stock": 1, "catalogCategory": "juguetes", "emoji": "💜", "badge": null, "image": "vibra-we-love.jpg" },
     { "sku": "CON-0006", "name": "Vibrador Wonderful (labial discreto)", "description": "Vibrador con apariencia de labial", "price": 28000, "stock": 2, "catalogCategory": "juguetes", "emoji": "💋", "badge": null, "image": "labial-vibra-wonder.jpg" },
     { "sku": "CON-0007", "name": "Plug silicona Talla S", "description": null, "price": 35000, "stock": 1, "catalogCategory": "juguetes", "emoji": "🌸", "badge": null, "image": "plug-silicona.jpg" },
